@@ -1,6 +1,5 @@
 <?php
 /**
- * Fibonacci Interactivo — Prueba Técnica GERET
  * Lógica, funciones y punto de entrada de la aplicación.
  */
 
@@ -132,6 +131,7 @@ function validar_n($n): array
 $error = null;
 $nActual = obtener_n_de_sesion();
 
+// Si el formulario fue enviado por POST, validamos N y lo guardamos en sesión.
 if (
     isset($_SERVER['REQUEST_METHOD'], $_POST['n'])
     && $_SERVER['REQUEST_METHOD'] === 'POST'
@@ -142,10 +142,12 @@ if (
         $nActual = $validacion['n'];
         $_SESSION['ultimo_n'] = $nActual;
     } else {
+        // Ante un valor inválido se muestra el error y se mantiene el N anterior.
         $error = $validacion['mensaje'];
     }
 }
 
+// Calcula la secuencia con el N actual (sesión, POST válido o valor por defecto).
 $secuencia = calcular_fibonacci($nActual);
 $tieneSesion = isset($_SESSION['ultimo_n']);
 

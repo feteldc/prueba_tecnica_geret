@@ -1,3 +1,9 @@
+<?php
+/**
+ * Vista HTML de la aplicación Fibonacci.
+ * Recibe desde index.php: $nActual, $secuencia, $error y $tieneSesion.
+ */
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

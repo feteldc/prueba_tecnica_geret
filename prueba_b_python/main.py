@@ -264,6 +264,7 @@ def main() -> int:
         db_config = get_db_config()
         validate_config(db_config)
 
+        # 1. Consultar clima actual en Open-Meteo.
         print(
             f"Consultando clima para {weather_config['city_name']} "
             f"({weather_config['latitude']}, {weather_config['longitude']})..."
@@ -281,7 +282,10 @@ def main() -> int:
             f"Código: {weather_data['weathercode']}"
         )
 
+        # 2. Guardar el registro en MySQL.
         save_to_db(weather_data, weather_config["city_name"], db_config)
+
+        # 3. Mostrar los últimos registros almacenados.
         list_recent_records(db_config)
 
         return 0

@@ -110,6 +110,17 @@ El script:
 - Fallos de conexión o inserción en MySQL.
 - Variables de entorno obligatorias no definidas.
 
+## Verificación en MySQL
+
+Después de ejecutar `python main.py`, comprueba los datos guardados:
+
+```sql
+USE weather_db;
+SELECT * FROM weather_records ORDER BY fetched_at DESC LIMIT 5;
+```
+
+Cada ejecución del script debe agregar un nuevo registro a la tabla.
+
 ## Ejemplo de salida
 
 ```

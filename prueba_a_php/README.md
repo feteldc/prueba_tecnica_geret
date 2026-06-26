@@ -70,3 +70,10 @@ Este proyecto no utiliza variables de entorno. Las constantes definidas en `inde
 | `N_MIN` | 2 | Mínimo de términos permitidos |
 | `N_MAX` | 30 | Máximo de términos permitidos |
 | `N_DEFAULT` | 10 | Valor inicial cuando no hay sesión |
+
+## Verificación rápida
+
+1. Ejecuta `php -S localhost:8000` y abre `http://localhost:8000/`.
+2. Envía **N = 15** y confirma que la lista muestra 15 términos empezando en `0, 1, 1, 2, 3...`.
+3. Recarga la página sin enviar el formulario: debe mantener **N = 15** gracias a `$_SESSION['ultimo_n']`.
+4. Prueba un valor fuera de rango (por ejemplo **50**): debe mostrar error y no romper la página.
